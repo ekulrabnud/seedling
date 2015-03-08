@@ -8,14 +8,29 @@
     <!-- Bootstrap -->
     <link href="{{ url_for('static',filename="bower_components/bootstrap/dist/css/bootstrap.min.css")}}" rel="stylesheet">
   </head>
-
   
   <body>
-    <h1>{{temp[1]}}</h1>
-    <h2>{{temp[2]}}</h2>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    {{now}}
+    {% for i in temps %}
+      <div class="jumbotron" id="{{i}}"><h2>{{i}}</h2></div>
+    {% endfor %}
+
+    
+    <div class="container">
+      <div class="row">
+        <canvas id="tempGraph" height="200" width="800"></canvas>
+      </div>
+    </div>
+
+
+
+
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static',filename="bower_components/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+    <script src="{{ url_for('static',filename="Chart.js/Chart.js")}}"></script>
+    <script src="{{ url_for('static',filename="js.js")}}"></script>
   </body>
 </html>
